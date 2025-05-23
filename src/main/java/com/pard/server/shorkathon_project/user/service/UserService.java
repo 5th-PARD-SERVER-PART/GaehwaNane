@@ -6,6 +6,8 @@ import com.pard.server.shorkathon_project.user.service.dto.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -13,7 +15,7 @@ public class UserService {
     private final UserRepository userRepository;
 
     public void createUser(UserDto user) {
-        User user1 = new User(null, user.getName());
+        User user1 = new User(null, user.getName(), new ArrayList<>());
         userRepository.save(user1);
     }
 
